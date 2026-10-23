@@ -1,0 +1,6 @@
+# Design sources, reference renders and QA screenshots stay local
+_design-src/
+_reference/
+tools/
+shots/
+node_modules/

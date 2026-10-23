@@ -6,7 +6,7 @@
 
 Add a **Custom Element** to the page, set its source to **Server URL**, and enter:
 
-- **Server URL:** `https://cdn.jsdelivr.net/gh/joco-tandem/dt-homepage@v1.0.0/dist/dt-homepage.js` (a pinned tag, like Expert Talks; an update is a new tag plus the new URL in Studio)
+- **Server URL:** `https://cdn.jsdelivr.net/gh/joco-tandem/dt-homepage@v1.0.1/dist/dt-homepage.js` (a pinned tag, like Expert Talks; an update is a new tag plus the new URL in Studio)
 - **Tag name:** `dt-homepage`
 
 The element sizes itself to its content. There are no fixed heights or `100vh` sections. The nav bar is `position: sticky`. It only sticks if no Wix wrapper around the element has `overflow: hidden`, and the Wix site header may need hiding so there aren't two navs.
@@ -17,17 +17,17 @@ Links that leave the page use `target="_top"`, so they also escape an iframe. Ev
 
 | Attribute | Used by | Default |
 |---|---|---|
-| `signup-url` | every "Get started" button | `https://members.dinnertable.com/sign-up` (the new signup design) |
+| `signup-url` | every "Get started" button | `https://members.dinnertable.com/signup` |
 | `login-url` | "Log In" | `https://members.dinnertable.com/login` |
 | `amazon-url` | "Get the book on Amazon" | the book's Amazon page |
 | `kindle-url` | "Get the book on Kindle" | EM's Kindle link |
-| `about-url`, `resources-url`, `webinars-url`, `contact-url`, `terms-url`, `privacy-url` | footer links | none |
+| `about-url`, `resources-url`, `webinars-url`, `contact-url`, `terms-url`, `privacy-url` | footer links | the Wix site's `/about`, `/resources`, `/event-list`, `/contact`, `/terms-and-conditions`; the app's `/privacy` |
 
 A link with no URL renders as `href="#"` and does nothing when clicked. The nav links, "See how it works", the logo and the footer's "How It Works" / "Pricing" scroll within the page.
 
 ## Open questions for marketing
 
-- Destinations for: About, Free Resources, Webinars, Contact, Terms, Privacy.
+- Final destinations for the footer links (they point at the Wix site's old pages for now).
 - Should "Get started" go straight to signup, or to the in-page final CTA (`#start`) as in the mockup?
 - The hero photo is 1000×666. It's sharp on standard screens but slightly soft on 2× (retina) screens, where it would need about 1200px wide.
 - The Steven Finkelstein review, the Taylor Family quote and the prices ($1 a day / $30 a month, $25 a month / $300 a year): please confirm they're final.

@@ -37,17 +37,19 @@
   // Attribute -> default URL. An empty default means "no destination yet":
   // the link renders as href="#" and does nothing until the attribute is set.
   const LINKS = {
-    "signup-url": "https://members.dinnertable.com/sign-up",
+    "signup-url": "https://members.dinnertable.com/signup",
     "login-url": "https://members.dinnertable.com/login",
     "amazon-url": "https://www.amazon.com/Value-Creation-Family-Playbook-Setting/dp/B0GLT94F97/",
     "kindle-url":
       "https://www.amazon.com/Value-Creation-Family-Playbook-Setting-ebook/dp/B0G2TH5QBW?dplnkId=d00b5887-390b-43d1-8fb3-68b717ee36d9&nodl=1",
-    "about-url": "",
-    "resources-url": "",
-    "webinars-url": "",
-    "contact-url": "",
-    "terms-url": "",
-    "privacy-url": "",
+    // Footer: the Wix site's existing pages for now (Christine, Oct 24), as
+    // its old menu had them. Wix has no privacy page; the app's is used.
+    "about-url": "https://www.dinnertable.com/about",
+    "resources-url": "https://www.dinnertable.com/resources",
+    "webinars-url": "https://www.dinnertable.com/event-list",
+    "contact-url": "https://www.dinnertable.com/contact",
+    "terms-url": "https://www.dinnertable.com/terms-and-conditions",
+    "privacy-url": "https://members.dinnertable.com/privacy",
   };
 
   const SEATS = [

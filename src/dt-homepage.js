@@ -52,6 +52,17 @@
     "privacy-url": "https://members.dinnertable.com/privacy",
   };
 
+  // Adds tracking params ("a=1&b=2") to a link, keeping any it already has.
+  function withUtm(url, params) {
+    try {
+      const u = new URL(url);
+      new URLSearchParams(params).forEach((v, k) => u.searchParams.set(k, v));
+      return u.href;
+    } catch {
+      return url;
+    }
+  }
+
   const SEATS = [
     { id: "ben", short: "Ben", left: "28%", top: "55%", dot: "#2D6A6F", role: "HEAD COACH", pillBg: "#2D6A6F", name: "Ben keeps the budget", cardLeft: "36%", cardTop: "4%",
       rows: [["Family goal:", "camping trip fund, 60%"], ["This week:", "posts two new paid gigs"]] },
@@ -239,6 +250,8 @@
     .hero-book svg { flex: 0 0 auto; }
     .hero-book p { font-size: 15px; color: var(--body); }
     .hero-book em { font-family: var(--serif); font-size: 17px; }
+    .hero-book a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .hero-book a:hover { color: var(--teal); }
 
     .hero-visual { flex: 1 1 500px; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 16px; position: relative; }
     .photo { grid-row: 1; grid-column: 1; position: relative; border-radius: 32px; overflow: hidden; box-shadow: 0 30px 60px rgba(31,45,42,0.18); aspect-ratio: 1000 / 666; background: var(--sand); }
@@ -703,10 +716,10 @@
             <a class="btn btn-rust" data-link="signup-url">Get started</a>
             <a class="btn btn-outline" href="#how" data-scroll>See how it works</a>
           </div>
-          <p class="hero-note">About $1 a day. Cancel anytime.</p>
+          <p class="hero-note">Start your 7-day free trial now</p>
           <div class="hero-book">
             <svg width="36" height="44" viewBox="0 0 36 44" aria-hidden="true"><rect x="1" y="1" width="34" height="42" rx="3" fill="#2D6A6F"></rect><rect x="6" y="8" width="24" height="3" rx="1.5" fill="#F2ECE3"></rect><rect x="6" y="14" width="16" height="3" rx="1.5" fill="#F2ECE3"></rect></svg>
-            <p>Built on Lee Benson’s Amazon bestseller, <em>Value Creation Family</em>.</p>
+            <p><a data-link="amazon-url" data-utm="utm_source=homepage&amp;utm_medium=dt-website&amp;utm_campaign=value-creation-family-book">Built on Lee Benson’s Amazon bestseller, <em>Value Creation Family</em>.</a></p>
           </div>
         </div>
         <div class="hero-visual">
@@ -1072,7 +1085,7 @@
         const name = a.dataset.link;
         const url = (this.getAttribute(name) || LINKS[name] || "").trim();
         if (url && url !== "#") {
-          a.href = url;
+          a.href = a.dataset.utm ? withUtm(url, a.dataset.utm) : url;
           a.target = "_top";
           a.removeAttribute("data-pending");
         } else {

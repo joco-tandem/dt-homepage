@@ -6,7 +6,7 @@
 
 Add a **Custom Element** to the page, set its source to **Server URL**, and enter:
 
-- **Server URL:** `https://cdn.jsdelivr.net/gh/joco-tandem/dt-homepage@v1.0.1/dist/dt-homepage.js` (a pinned tag, like Expert Talks; an update is a new tag plus the new URL in Studio)
+- **Server URL:** `https://cdn.jsdelivr.net/gh/joco-tandem/dt-homepage@v1.0.2/dist/dt-homepage.js` (a pinned tag, like Expert Talks; an update is a new tag plus the new URL in Studio)
 - **Tag name:** `dt-homepage`
 
 The element sizes itself to its content. There are no fixed heights or `100vh` sections. The nav bar is `position: sticky`. It only sticks if no Wix wrapper around the element has `overflow: hidden`, and the Wix site header may need hiding so there aren't two navs.

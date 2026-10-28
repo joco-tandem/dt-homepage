@@ -4,7 +4,7 @@
  * Mockup, Homepage desktop" (latest template, Main.dc.latest.html), which is
  * desktop only; the tablet and phone layouts are designed here.
  *
- * Links: "Get started" and "Log In" go to the members app. Override them, and
+ * Links: "Start your free trial" and "Log In" go to the members app. Override them, and
  * the links that have no destination yet, with attributes (see LINKS below).
  * Links that leave the page use target="_top" so they escape any iframe.
  */
@@ -246,6 +246,7 @@
     .hero-lead { line-height: 1.6; margin: 0 0 32px; max-width: 34em; }
     .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
     .hero-note { font-size: 14px; color: var(--muted); margin: 16px 0 0; }
+    .hero-note strong { font-weight: 700; color: var(--text); }
     .hero-book { display: flex; align-items: center; gap: 14px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); max-width: 30em; }
     .hero-book svg { flex: 0 0 auto; }
     .hero-book p { font-size: 15px; color: var(--body); }
@@ -504,6 +505,7 @@
     }
     @media (min-width: 960px) and (max-width: 1199px) {
       .chips-label { flex-basis: 100%; }
+      .hero-ctas .btn { padding-left: 24px; padding-right: 24px; }
     }
     @media (min-width: 601px) {
       .hero-book em { white-space: nowrap; }
@@ -617,6 +619,12 @@
       .final .btn { padding: 18px 32px; font-size: 17px; }
       .foot-in { padding-top: 32px; padding-bottom: 40px; flex-direction: column; align-items: flex-start; }
     }
+    /* "Start your free trial" is long; fit it beside the logo and menu down to 381px. */
+    @media (max-width: 440px) {
+      .nav { gap: 10px; }
+      .logo img { width: 118px; }
+      .nav-cta { font-size: 13px; padding: 10px 13px; }
+    }
     @media (max-width: 380px) {
       .nav-cta { display: none; }
       .hero-ctas .btn { flex: 1 1 100%; }
@@ -684,7 +692,7 @@
         </div>
         <div class="nav-actions">
           <a class="login" data-link="login-url">Log In</a>
-          <a class="btn btn-rust nav-cta" data-link="signup-url">Get started</a>
+          <a class="btn btn-rust nav-cta" data-link="signup-url">Start your free trial</a>
         </div>
         <button type="button" class="menu-btn" aria-expanded="false" aria-controls="dt-mobile-menu">
           <span class="sr-only">Menu</span>
@@ -698,7 +706,7 @@
         <a class="m-link" href="#pricing" data-scroll>Pricing</a>
         <a class="m-link" href="#faq" data-scroll>FAQs</a>
         <div class="m-actions">
-          <a class="btn btn-rust" data-link="signup-url">Get started</a>
+          <a class="btn btn-rust" data-link="signup-url">Start your free trial</a>
           <a class="login" data-link="login-url">Log In</a>
         </div>
       </div>
@@ -713,10 +721,10 @@
           <h1>Your family is a team. Run it like one.</h1>
           <p class="lead hero-lead">Dinner Table is a simple system for raising capable kids: a family meeting where everyone has a say, family jobs every kid owns, and paid gigs that teach them to&nbsp;earn.</p>
           <div class="hero-ctas">
-            <a class="btn btn-rust" data-link="signup-url">Get started</a>
+            <a class="btn btn-rust" data-link="signup-url">Start your free trial</a>
             <a class="btn btn-outline" href="#how" data-scroll>See how it works</a>
           </div>
-          <p class="hero-note">Start your 7-day free trial now</p>
+          <p class="hero-note"><strong>Start your free 7-day trial now. Cancel anytime.</strong></p>
           <div class="hero-book">
             <svg width="36" height="44" viewBox="0 0 36 44" aria-hidden="true"><rect x="1" y="1" width="34" height="42" rx="3" fill="#2D6A6F"></rect><rect x="6" y="8" width="24" height="3" rx="1.5" fill="#F2ECE3"></rect><rect x="6" y="14" width="16" height="3" rx="1.5" fill="#F2ECE3"></rect></svg>
             <p><a data-link="amazon-url" data-utm="utm_source=homepage&amp;utm_medium=dt-website&amp;utm_campaign=value-creation-family-book">Built on Lee Benson’s Amazon bestseller, <em>Value Creation Family</em>.</a></p>
@@ -890,7 +898,7 @@
             </div>
           </div>
         </div>
-        <div class="how-cta"><a class="btn btn-cream" data-link="signup-url">Get started</a></div>
+        <div class="how-cta"><a class="btn btn-cream" data-link="signup-url">Start your free trial</a></div>
       </div>
     </section>
 
@@ -968,7 +976,7 @@
               <li>${TICK}<span>A community of parents, day and night</span></li>
               <li>${TICK}<span>Practical guides on money, house rules and healthy struggles</span></li>
             </ul>
-            <a class="btn btn-rust" data-link="signup-url">Get started</a>
+            <a class="btn btn-rust" data-link="signup-url">Start your free trial</a>
           </div>
         </div>
       </div>
@@ -987,7 +995,7 @@
         <div class="final-inner">
           <h2 class="display">Your family’s system starts at the dinner table.</h2>
           <p class="lead">Pull up a chair. One conversation this week is all it takes to begin.</p>
-          <a class="btn btn-cream" data-link="signup-url">Get started</a>
+          <a class="btn btn-cream" data-link="signup-url">Start your free trial</a>
         </div>
       </div>
     </section>
@@ -1017,7 +1025,7 @@
   // jsDelivr folder when the script was loaded some other way.
   const ASSET_BASE = (() => {
     const src = document.currentScript && document.currentScript.src;
-    return src ? new URL(".", src).href : "https://cdn.jsdelivr.net/gh/joco-tandem/dt-homepage@v1.0.2/dist/";
+    return src ? new URL(".", src).href : "https://cdn.jsdelivr.net/gh/joco-tandem/dt-homepage@v1.0.3/dist/";
   })();
 
   class DtHomepage extends HTMLElement {
